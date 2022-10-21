@@ -34,7 +34,7 @@ if page == 'Home':
     - For more details, check out this [Tutorial](https://www.realpythonproject.com/a-free-tool-to-take-your-github-profile-to-the-next-level/)
     ''')
 if page == 'Generate README':
-    st.subheader("Fill in the text boxes and click on Generate README")
+    st.subheader("Fill in the text boxes and click on GENERATE README")
     theme_list = ["default","solarized-light","dark", "radical", "merko", "gruvbox", "tokyonight", "onedark", "cobalt", "synthwave", "highcontrast", "dracula"]
     
     github_stats_type = sbar.selectbox(label="Chose Github Stats Card Type",options=['type-1','type-2','type-3'],index=1)
@@ -51,29 +51,29 @@ if page == 'Generate README':
 
     with col1:
         name = st.text_input("Name")
-        twitter = st.text_input("Twitter")
+        twitter = st.text_input("Twitter Profile")
 
     with col2:
-        github = st.text_input("Github UserID")
-        portfolio = st.text_input("Portfolio")
+        github = st.text_input("Github Profile")
+        portfolio = st.text_input("Portfolio Link")
 
     with col3:
-        linkedin = st.text_input("Linkedin userID")
-        medium = st.text_input("Medium URL")
+        linkedin = st.text_input("Linkedin Profile")
+        medium = st.text_input("Medium Profile")
 
-    p1_value = '''My Blog, Github Project''' 
+    p1_value = '''Github project, blogs etc...''' 
     p1 = st.text_area("I am currently working on", value=p1_value)
 
-    p2_value = '''Data Science,AWS,Data Engineering'''
+    p2_value = '''Data Science, AWS, Data Engineering...'''
     p2 = st.text_area("I am currently learning", value = p2_value)
 
-    p3_value = '''Projects,Tech Articles'''
+    p3_value = '''projects, tech articles...'''
     p3 = st.text_area("I am looking to collaborate on", value = p3_value)
 
-    p4_value = '''Python, JavaScript, Freelancing Opportunites, Open Source'''
-    p4 = st.text_area("talk to me about",value = p4_value)
+    p4_value = '''Python, JavaScript, Freelancing Opportunites, Open Source...'''
+    p4 = st.text_area("Talk to me about",value = p4_value)
 
-    user_skills = st.multiselect("Select Skills",options=skills,default=['python','reactjs','javascript','scikit','c','cpp','sqlite','pytorch'])
+    user_skills = st.multiselect("Select Skills",options=skills,default=['python','reactjs','javascript','scikit','c','cpp','sqlite','pytorch','java','html', 'css'])
     waka_userid = st.text_input("Wakatime User ID")
     e1 = st.expander("What is Wakatime and how do I get my user ID?")
     with e1:
@@ -94,18 +94,20 @@ if page == 'Generate README':
         feed_url = st.text_input("URL to your feed")
         st.markdown(f'''
         - Ensure checkbox for blog in sidebar is selected
-        - After you update the above feed url, give it a minute and Download the below yml file
+        - After you update the above feed url, give it a minute and download the yml file below
         {get_yml(feed_url)}
         ''',unsafe_allow_html = True)
         st.markdown(''' 
-        - Create a folder .github, inside it create another folder called workflows, inside it paste the downloaded blog-post-workflow.yml. 
+        - Create a folder .github
+        - Create a sub-folder called workflows
+        - Create a sub-folder and paste the downloaded blog-post-workflow.yml. 
         - Essentially create .github/workflows/blog-post-workflow.yml. If you paste this as the file while creating a new file in Github, it creates the folders for you.
         - In your readme, you blog feed will appear in between the lines 
             ``` 
             <!-- BLOG-POST-LIST:START -->
             <!-- BLOG-POST-LIST:END -->
             ```
-        - Once you create the folder and store the file, Go to your github repo > Actions. Select the workflow in left sidebar and click on run flow. You will only have to do this once. Github will periodically fetch content from your feed.
+        - Once you create the folder and store the file, go to your github repo > Actions. Select the workflow in left sidebar and click on run flow. You will only have to do this once. Github will periodically fetch content from your feed.
         ''')
  
 
